@@ -64,7 +64,7 @@ def load_data(control):
     """
     Carga los datos
     """
-    data = controller.load_data(control)
+    data = controller.load_data(control, "Ruta")
     return data
 
 
