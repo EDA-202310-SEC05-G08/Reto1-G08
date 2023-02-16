@@ -44,32 +44,52 @@ dos listas, una para los videos, otra para las categorias de los mismos.
 # Construccion de modelos
 
 
-def new_data_structs():
+def newCatalog():
     """
     Inicializa las estructuras de datos del modelo. Las crea de
     manera vacía para posteriormente almacenar la información.
     """
-    data_structs = {
+    catalog = {
         "data": None,
+        "actividad_economica":None,
+        "sector_economico":None,
+        "subsector_economico":None
     }
 
-    data_structs["data"] = lt.newList(datastructure="ARRAY_LIST",
+    catalog["data"] = lt.newList(datastructure="ARRAY_LIST",
+                                     cmpfunction=compare)
+    catalog["actividad_economica"] = lt.newList(datastructure="ARRAY_LIST",
+                                     cmpfunction=compare)
+    catalog["sector_economico"] = lt.newList(datastructure="ARRAY_LIST",
+                                     cmpfunction=compare)
+    catalog["subsector_economico"] = lt.newList(datastructure="ARRAY_LIST",
                                      cmpfunction=compare)
 
-    return data_structs
+    return catalog
 
 
-# Funciones para agregar informacion al modelo
+def addcontenidoN(catalog,data):
+    #Se separa cada linea del csv en una lista con la info
+    info=dicc_array(data)
+    lt.addLast(catalog["data"],info)
 
-def add_data(data_structs, data):
-    """
-    Función para agregar nuevos elementos a la lista
-    """
-    d = new_data(data["id"], data["info"])
-    lt.addLast(data_structs["data"], d)
 
-    return data_structs
+    return catalog
 
+def dicc_array(info):
+    array=lt.newList("ARRAY_LIST")
+    lt.addFirst(array,info["Año"])#1
+    lt.addLast(array,info["Código actividad económica"])#2
+    lt.addLast(array,info["Nombre actividad económica"])#3
+    lt.addLast(array,info["Código sector económico"])#4
+    lt.addLast(array,info["Nombre sector económico"])#5
+    lt.addLast(array,info["Código subsector económico"])#6
+    lt.addLast(array,info["Nombre subsector económico"])#7
+    lt.addLast(array,info["Total ingresos netos"])#8
+    lt.addLast(array,info["Total costos y gastos"])#9
+    lt.addLast(array,info["Total saldo a pagar"])#10
+    lt.addLast(array,info["Total saldo a favor"])#11
+    return array
 
 # Funciones para creacion de datos
 
