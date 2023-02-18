@@ -91,6 +91,10 @@ def cargadatosgames(lista):
         list_aux_.append(list_aux2)
     cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Nombre subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
     print(tabulate(list_aux_,headers=cabecero,tablefmt="grid",maxcolwidths=[5,10,20,10,20,10,20,10,10,10,10]))
+    
+
+
+
 def printMenu():
     print("Bienvenido")
     print("1- Cargar información en el catálogo")
@@ -113,10 +117,21 @@ while True:
         answer=controller.loadData(catalog,memflag=mem)
         catalog=answer[0]
         printAnswer(answer)
-        print(catalog)
- 
-        
 
+        new_dict={}
+        new_dict = catalog
+        elements_list = new_dict['data']['elements']
+        rta=[]
+        n=0
+        for value in elements_list:
+            linea=[]
+            linea.extend(elements_list[n]['elements'])
+            rta.append(linea)
+            n = n+1
+        cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Nombre subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
+
+        table = tabulate(rta, headers=cabecero, tablefmt='grid')
+        print(table)
 
     elif int(inputs[0]) == 2:
         pass
