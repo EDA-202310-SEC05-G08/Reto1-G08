@@ -66,14 +66,14 @@ def cargadatosgames(lista):
         for i in lt.iterator(lista):
             list_aux.append(i)
     else:
-        list_aux.append(lt.getElement(lista,1))
         list_aux.append(lt.getElement(lista,2))
         list_aux.append(lt.getElement(lista,3))
+        list_aux.append(lt.getElement(lista,4))
         list_aux.append(lt.getElement(lista,size-2))
         list_aux.append(lt.getElement(lista,size-1))
         list_aux.append(lt.getElement(lista,size))
     for info in list_aux:
-        list_aux2=["","","","","","",""]
+        list_aux2=["","","","","","","","","","",""]
         list_aux2[0]=lt.getElement(info,1)
         list_aux2[1]=lt.getElement(info,2)
         list_aux2[2]=lt.getElement(info,3)
@@ -131,7 +131,7 @@ while True:
         cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Nombre subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
 
         table = tabulate(rta, headers=cabecero, tablefmt='grid')
-        print(table)
+        cargadatosgames(catalog["data"])
 
     elif int(inputs[0]) == 2:
         pass
