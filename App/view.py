@@ -25,7 +25,7 @@ import sys
 import controller
 from DISClib.ADT import list as lt
 assert cf
-
+from DISClib.DataStructures import arraylist as ar
 from tabulate import tabulate
 
 default_limit = 1000
@@ -131,7 +131,14 @@ while True:
         cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Nombre subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
 
         table = tabulate(rta, headers=cabecero, tablefmt='grid')
-        cargadatosgames(catalog["data"])
+        #cargadatosgames((catalog["data"]))
+          
+        x=lt.getElement(catalog["data"],1) 
+        b=lt.getElement(x,1)
+        print(b)
+
+             
+        
 
     elif int(inputs[0]) == 2:
         pass

@@ -57,13 +57,7 @@ def newCatalog():
     }
 
     catalog["data"] = lt.newList(datastructure="ARRAY_LIST",
-                                     cmpfunction=compare)
-    catalog["actividad_economica"] = lt.newList(datastructure="ARRAY_LIST",
-                                     cmpfunction=compare)
-    catalog["sector_economico"] = lt.newList(datastructure="ARRAY_LIST",
-                                     cmpfunction=compare)
-    catalog["subsector_economico"] = lt.newList(datastructure="ARRAY_LIST",
-                                     cmpfunction=compare)
+                                     cmpfunction=sort)
 
     return catalog
 
@@ -78,7 +72,7 @@ def addcontenidoN(catalog,data):
 
 def dicc_array(info):
     array=lt.newList("ARRAY_LIST")
-    lt.addFirst(array,info["Año"])#1
+    lt.addFirst(array,int(info["Año"]))#1
     lt.addLast(array,info["Código actividad económica"])#2
     lt.addLast(array,info["Nombre actividad económica"])#3
     lt.addLast(array,info["Código sector económico"])#4
@@ -214,7 +208,7 @@ def sort_criteria(data_1, data_2):
     Returns:
         _type_: _description_
     """
-    return data_1["id"] > data_2["id"]
+    return data_1["Año"] > data_2["Año"]
 
 
 def sort(data_structs):
