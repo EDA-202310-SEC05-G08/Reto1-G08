@@ -98,7 +98,14 @@ def cargadatosgames(lista):
 def printMenu():
     print("Bienvenido")
     print("1- Cargar información en el catálogo")
-    print("2- ")
+    print("2- Listar la actividad económica con mayor total saldo a pagar para todos los años disponibles")
+    print("3- Listar la actividad económica con mayor total saldo a favor para todos los años disponibles")
+    print("4- Encontrar el subsector económico con el menor total de retenciones para todos los años disponibles")
+    print("5- Encontrar el subsector económico con los mayores costos y gastos de nómina para todos los años disponibles ")
+    print("6- Encontrar el subsector económico con los mayores descuentos tributarios para todos los años disponibles")
+    print("7- Encontrar la actividad económica con el mayor total de ingresos netos para cada sector económico en un año específico")
+    print("8- Listar el TOP (N) de las actividades económicas con el menor total de costos y gastos para un periodo de tiempo ")
+    print("9- Listar el TOP (N) de actividades económicas de cada subsector con los mayores totales de impuestos a cargo para un periodo de tiempo. ")
 
 catalog = controller.newController()
 catalog=catalog["model"]
@@ -136,12 +143,31 @@ while True:
         x=lt.getElement(catalog["data"],1) 
         b=lt.getElement(x,1)
         print(b)
-
-             
         
-
     elif int(inputs[0]) == 2:
         pass
+    
+    elif int(inputs[0]) == 3:
+        pass
+
+    elif int(inputs[0]) == 4:
+        pass
+    
+    elif int(inputs[0]) == 5:
+        pass
+    
+    elif int(inputs[0]) == 6:
+        pass
+    
+    elif int(inputs[0]) == 7:
+        pass
+
+    elif int(inputs[0]) == 8:
+        pass
+
+    elif int(inputs[0]) == 9:
+        pass
+
 
     else:
         sys.exit(0)
