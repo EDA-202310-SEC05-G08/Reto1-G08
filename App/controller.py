@@ -69,6 +69,11 @@ def loadcontenido(catalog):
 
 # Funciones de consulta sobre el catálogo
 
+def mas_costos_gastos(catalog):
+    
+    ret = model.mas_costos_gastos(catalog)
+    
+    return ret
 
 # Funciones para medir tiempos de ejecucion
 

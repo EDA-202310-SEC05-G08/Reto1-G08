@@ -152,9 +152,13 @@ while True:
 
     elif int(inputs[0]) == 4:
         pass
-    
+        
     elif int(inputs[0]) == 5:
-        pass
+        
+        retenciones = controller.mas_costos_gastos(catalog)
+        print("Los subsectores economicos con mayores costos y gastos por año son: ")        
+    
+        print(retenciones)
     
     elif int(inputs[0]) == 6:
         pass

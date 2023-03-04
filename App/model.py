@@ -136,18 +136,40 @@ def req_2(data_structs):
 
 def req_3(data_structs):
     """
-    Función que soluciona el requerimiento 3
-    """
-    # TODO: Realizar el requerimiento 3
+    Requerimiento No. 3 (Individual): Encontrar el subsector económico con el menor
+    total de retenciones para todos los años disponibles    """
     pass
 
+def mas_costos_gastos(catalog):
+    """
+    Requerimiento No. 4 (Individual): Encontrar el subsector económico con los mayores
+    costos y gastos de nómina para todos los años disponibles    """
+    
+    rta = []
+    new_dict = catalog
+    elements_list = new_dict['data']['elements']
+    lst=[]
+    
+    n=0
+    for item in elements_list:
+        linea=[]
+        linea.extend(elements_list[n]['elements'])
+        lst.append(linea)
+        n = n+1
+    
+    data_dicts = []
+    cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Nombre subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
+    
+    for row in lst:
+        new_dict = {}
+        for i, column_name in enumerate(cabecero):
+            new_dict[column_name] = row[i]
+        data_dicts.append(new_dict)
+        
+    ordenado = {}
+    ordenado["data"] = data_dicts
 
-def req_4(data_structs):
-    """
-    Función que soluciona el requerimiento 4
-    """
-    # TODO: Realizar el requerimiento 4
-    pass
+    return ordenado
 
 
 def req_5(data_structs):
