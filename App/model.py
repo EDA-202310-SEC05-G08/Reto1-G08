@@ -168,7 +168,7 @@ def mas_costos_gastos(catalog):
         
     ordenado = {}
     ordenado["data"] = data_dicts
-
+    sort(ordenado["data"])
     return ordenado
 
 
