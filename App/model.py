@@ -81,7 +81,7 @@ def dicc_array(info):
     lt.addLast(array,info["Nombre subsector económico"])#7
     lt.addLast(array,info["Total ingresos netos"])#8
     lt.addLast(array,info["Total costos y gastos"])#9
-    lt.addLast(array,info["Total saldo a pagar"])#10
+    lt.addLast(array,int(info["Total saldo a pagar"]))#10
     lt.addLast(array,info["Total saldo a favor"])#11
     return array
 
@@ -118,13 +118,29 @@ def data_size(data_structs):
     return lt.size(data_structs["data"])
 
 
-def req_1(data_structs):
+def req_1(info):
     """
-    Función que soluciona el requerimiento 1
+    Función que soluciona el requerimiento 1 O(N)
     """
+    lista=lt.newList("ARRAY_LIST") #Por convencion, la posicion 1 sera 2012, 2 sera 2013 y asi sucesivamente
+    anio_base=2011
+    lt.addFirst(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
     # TODO: Realizar el requerimiento 1
-    pass
-
+    for i in lt.iterator(info):
+        anio=lt.getElement(i,1)-anio_base  #Anio es la posicion para la lista
+        saldo=lt.getElement(i,10)  
+        if lt.getElement(lista,anio)==0 or saldo > lt.getElement(lt.getElement(lista,anio),10):
+            lt.changeInfo(lista,anio,i)
+    return lista
 
 def req_2(data_structs):
     """

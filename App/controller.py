@@ -112,3 +112,7 @@ def deltaMemory(stop_memory, start_memory):
     # de Byte -> kByte
     delta_memory = delta_memory/1024.0
     return delta_memory
+
+def req_1(catalog):
+    answer=model.req_1(catalog["data"])
+    return answer

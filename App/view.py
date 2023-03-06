@@ -118,30 +118,17 @@ while True:
         catalog=answer[0]
         printAnswer(answer)
 
-        new_dict={}
-        new_dict = catalog
-        elements_list = new_dict['data']['elements']
-        rta=[]
-        n=0
-        for value in elements_list:
-            linea=[]
-            linea.extend(elements_list[n]['elements'])
-            rta.append(linea)
-            n = n+1
-        cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Nombre subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
-
-        table = tabulate(rta, headers=cabecero, tablefmt='grid')
-        #cargadatosgames((catalog["data"]))
+       
+        cargadatosgames((catalog["data"]))
           
-        x=lt.getElement(catalog["data"],1) 
-        b=lt.getElement(x,1)
-        print(b)
+ 
 
              
         
 
     elif int(inputs[0]) == 2:
-        pass
+        answer=controller.req_1(catalog)
+        cargadatosgames(answer)
 
     else:
         sys.exit(0)
