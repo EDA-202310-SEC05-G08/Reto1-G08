@@ -142,28 +142,66 @@ def req_1(info):
             lt.changeInfo(lista,anio,i)
     return lista
 
-def req_2(data_structs):
+def req_2(info):
     """
     Función que soluciona el requerimiento 2
     """
     # TODO: Realizar el requerimiento 2
-    pass
-
+    lista=lt.newList("ARRAY_LIST") #Por convencion, la posicion 1 sera 2012, 2 sera 2013 y asi sucesivamente
+    anio_base=2011
+    lt.addFirst(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    # TODO: Realizar el requerimiento 1
+    for i in lt.iterator(info):
+        anio=lt.getElement(i,1)-anio_base  #Anio es la posicion para la lista
+        saldo=lt.getElement(i,11)  
+        if lt.getElement(lista,anio)==0 or saldo > lt.getElement(lt.getElement(lista,anio),11):
+            lt.changeInfo(lista,anio,i)
 
 def req_3(data_structs):
     """
-    Función que soluciona el requerimiento 3
-    """
-    # TODO: Realizar el requerimiento 3
+    Requerimiento No. 3 (Individual): Encontrar el subsector económico con el menor
+    total de retenciones para todos los años disponibles    """
     pass
 
-
-def req_4(data_structs):
+def mas_costos_gastos(catalog):
     """
-    Función que soluciona el requerimiento 4
-    """
-    # TODO: Realizar el requerimiento 4
-    pass
+    Requerimiento No. 4 (Individual): Encontrar el subsector económico con los mayores
+    costos y gastos de nómina para todos los años disponibles    """
+    
+    rta = []
+    new_dict = catalog
+    elements_list = new_dict['data']['elements']
+    lst=[]
+    
+    n=0
+    for item in elements_list:
+        linea=[]
+        linea.extend(elements_list[n]['elements'])
+        lst.append(linea)
+        n = n+1
+    
+    data_dicts = []
+    cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Nombre subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
+    
+    for row in lst:
+        new_dict = {}
+        for i, column_name in enumerate(cabecero):
+            new_dict[column_name] = row[i]
+        data_dicts.append(new_dict)
+        
+    ordenado = {}
+    ordenado["data"] = data_dicts
+    sort(ordenado["data"])
+    return ordenado
 
 
 def req_5(data_structs):

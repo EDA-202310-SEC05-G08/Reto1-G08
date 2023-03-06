@@ -57,7 +57,42 @@ Presenta el menu de opciones y por cada seleccion
 se hace la solicitud al controlador para ejecutar la
 operación solicitada
 """
-def cargadatosgames(lista): 
+def cargadatos(lista): 
+   
+    list_aux=[]
+    list_aux_=[]
+    size=lt.size(lista)
+    if size<6:
+        for i in lt.iterator(lista):
+            list_aux.append(i)
+    else:
+        list_aux.append(lt.getElement(lista,2))
+        list_aux.append(lt.getElement(lista,3))
+        list_aux.append(lt.getElement(lista,4))
+        list_aux.append(lt.getElement(lista,size-2))
+        list_aux.append(lt.getElement(lista,size-1))
+        list_aux.append(lt.getElement(lista,size))
+    for info in list_aux:
+        list_aux2=["","","","","","","","","","",""]
+        list_aux2[0]=lt.getElement(info,1)
+        list_aux2[1]=lt.getElement(info,2)
+        list_aux2[2]=lt.getElement(info,3)
+        list_aux2[3]=lt.getElement(info,4)
+        list_aux2[4]=lt.getElement(info,5)
+        list_aux2[5]=lt.getElement(info,6)
+        list_aux2[6]=lt.getElement(info,7)
+        list_aux2[7]=lt.getElement(info,8)
+        list_aux2[8]=lt.getElement(info,9)
+        list_aux2[9]=lt.getElement(info,10)
+        list_aux2[10]=lt.getElement(info,11)
+
+
+
+        list_aux_.append(list_aux2)
+    cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Nombre subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
+    print(tabulate(list_aux_,headers=cabecero,tablefmt="grid",maxcolwidths=[3,5,10,3,3,3,3,3,3,3,3]))
+5
+def requerimiento1(lista): 
    
     list_aux=[]
     list_aux_=[]
@@ -91,14 +126,21 @@ def cargadatosgames(lista):
         list_aux_.append(list_aux2)
     cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Nombre subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
     print(tabulate(list_aux_,headers=cabecero,tablefmt="grid",maxcolwidths=[5,10,20,10,20,10,20,10,10,10,10]))
-    
+        
 
 
 
 def printMenu():
     print("Bienvenido")
     print("1- Cargar información en el catálogo")
-    print("2- ")
+    print("2- Listar la actividad económica con mayor total saldo a pagar para todos los años disponibles")
+    print("3- Listar la actividad económica con mayor total saldo a favor para todos los años disponibles")
+    print("4- Encontrar el subsector económico con el menor total de retenciones para todos los años disponibles")
+    print("5- Encontrar el subsector económico con los mayores costos y gastos de nómina para todos los años disponibles ")
+    print("6- Encontrar el subsector económico con los mayores descuentos tributarios para todos los años disponibles")
+    print("7- Encontrar la actividad económica con el mayor total de ingresos netos para cada sector económico en un año específico")
+    print("8- Listar el TOP (N) de las actividades económicas con el menor total de costos y gastos para un periodo de tiempo ")
+    print("9- Listar el TOP (N) de actividades económicas de cada subsector con los mayores totales de impuestos a cargo para un periodo de tiempo. ")
 
 catalog = controller.newController()
 catalog=catalog["model"]
@@ -117,9 +159,7 @@ while True:
         answer=controller.loadData(catalog,memflag=mem)
         catalog=answer[0]
         printAnswer(answer)
-
-       
-        cargadatosgames((catalog["data"]))
+        cargadatos((catalog["data"]))
           
  
 
@@ -128,7 +168,7 @@ while True:
 
     elif int(inputs[0]) == 2:
         answer=controller.req_1(catalog)
-        cargadatosgames(answer)
+        requerimiento1(answer)
 
     else:
         sys.exit(0)
