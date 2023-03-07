@@ -125,3 +125,7 @@ def req_1(catalog):
 def req_2(catalog):
     answer=model.req_2(catalog["data"])
     return answer
+
+def req_3(catalog):
+    answer=model.req_3(catalog["data"])
+    return answer

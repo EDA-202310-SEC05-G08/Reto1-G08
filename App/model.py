@@ -83,6 +83,8 @@ def dicc_array(info):
     lt.addLast(array,info["Total costos y gastos"])#9
     lt.addLast(array,int(info["Total saldo a pagar"]))#10
     lt.addLast(array,info["Total saldo a favor"])#11
+    lt.addLast(array,info["Total retenciones"])#12
+
     return array
 
 # Funciones para creacion de datos
@@ -168,11 +170,33 @@ def req_2(info):
             
     return lista
 
-def req_3(data_structs):
+def req_3(info):
     """
-    Requerimiento No. 3 (Individual): Encontrar el subsector económico con el menor
-    total de retenciones para todos los años disponibles    """
-    pass
+    Función que soluciona el requerimiento 3 INDIVIDUAL O(N)
+    """
+    # TODO: Realizar el requerimiento 2
+    lista=lt.newList("ARRAY_LIST") #Por convencion, la posicion 1 sera 2012, 2 sera 2013 y asi sucesivamente
+    anio_base=2011
+    lt.addFirst(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    # TODO: Realizar el requerimiento 1
+    for i in lt.iterator(info):
+        anio=lt.getElement(i,1)-anio_base  #Anio es la posicion para la lista
+        saldo=lt.getElement(i,12)  
+        if lt.getElement(lista,anio)==0 or saldo < lt.getElement(lt.getElement(lista,anio),12):
+            lt.changeInfo(lista,anio,i)
+            
+    return lista
+
+
 
 def mas_costos_gastos(catalog):
     """
