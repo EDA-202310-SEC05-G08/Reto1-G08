@@ -165,6 +165,8 @@ def req_2(info):
         saldo=lt.getElement(i,11)  
         if lt.getElement(lista,anio)==0 or saldo > lt.getElement(lt.getElement(lista,anio),11):
             lt.changeInfo(lista,anio,i)
+            
+    return lista
 
 def req_3(data_structs):
     """

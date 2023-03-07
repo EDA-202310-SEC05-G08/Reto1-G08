@@ -121,3 +121,7 @@ def deltaMemory(stop_memory, start_memory):
 def req_1(catalog):
     answer=model.req_1(catalog["data"])
     return answer
+
+def req_2(catalog):
+    answer=model.req_2(catalog["data"])
+    return answer
