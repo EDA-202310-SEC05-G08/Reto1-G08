@@ -90,7 +90,7 @@ def deltaTime(end, start):
     devuelve la diferencia entre tiempos de procesamiento muestreados
     """
     elapsed = float(end - start)
-    return elapsed
+    return abs(elapsed)
 
 
 # Funciones para medir la memoria utilizada

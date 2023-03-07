@@ -237,16 +237,24 @@ while True:
         
 
     elif int(inputs[0]) == 2:
+        inicio=controller.getTime()
         answer=controller.req_1(catalog)
         requerimiento1(answer)
+        fin=controller.getTime()
+        print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))
         
     elif int(inputs[0])==3:
+        inicio=controller.getTime()
         answer=controller.req_2(catalog)
         requerimiento2(answer)
-
+        fin=controller.getTime()
+        print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))
     elif int(inputs[0])==4:
+        inicio=controller.getTime()
         answer=controller.req_3(catalog)
         requerimiento3(answer)
+        fin=controller.getTime()
+        print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))
     else:
         sys.exit(0)
 sys.exit(0)
