@@ -89,7 +89,7 @@ def cargadatos(lista):
 
 
         list_aux_.append(list_aux2)
-    cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Nombre subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
+    cabecero=["Año","Cod Actividad Economico","Nombre Act Economico","Codigo Sector Economico","Nombre sector economico","Cod subsector economico","Nom subsector economico","Total ingresos netos","Total costos y gastos","Total saldo a pagar","Total saldo a favor"]
     print(tabulate(list_aux_,headers=cabecero,tablefmt="grid",maxcolwidths=[3,5,10,3,3,3,3,3,3,3,3]))
 
 def requerimiento1(lista): 
@@ -206,8 +206,8 @@ def requerimiento3(lista):
 
 
         list_aux_.append(list_aux2)
-    cabecero=["Año","Cod Sector Economico","Nom Sector Economico","Cod Subsector","Nom subsector","Total de retencion","Total ingresos netos","Total costos y gastos del subsector economico", "Total saldo a pagar del subsector economico", "Total saldo a favor del subsector economico"]
-    print(tabulate(list_aux_,headers=cabecero,tablefmt="grid",maxcolwidths=[3,5,10,3,3,3,3,3,3,3]))   
+    cabecero=["Año","Cod Sec Economico","Nom Sect Economico","Cod Subsect","Nom subsect","Total de retencion","Total ingresos netos","Total costos y gastos del subsector economico", "Total saldo a pagar del subsect economico", "Total saldo a favor del subsect economico"]
+    print(tabulate(list_aux_,headers=cabecero,tablefmt="grid",maxcolwidths=[3,5,10,3,10,3,3,3,3,3]))   
 
 def printMenu():
     print("Bienvenido")
