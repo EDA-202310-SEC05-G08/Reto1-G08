@@ -296,3 +296,11 @@ def sort(data_structs):
     Función encargada de ordenar la lista con los datos
     """
     sa.sort(data_structs["data"], sort_criteria)
+
+def cmp_by_year(data1,data2):
+    if data1["año"] < data2["año"]:
+        return True
+    elif data1["año"] == data2["año"]:
+        return True
+    else:
+        return False
