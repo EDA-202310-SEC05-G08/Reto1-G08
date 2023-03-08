@@ -220,7 +220,7 @@ def req_4(catalog):
     for i in lt.iterator(info):
         anio=lt.getElement(i,1)-anio_base  #Anio es la posicion para la lista
         saldo=lt.getElement(i,9)  
-        if lt.getElement(lista,anio)==0 or saldo < lt.getElement(lt.getElement(lista,anio),12):
+        if lt.getElement(lista,anio)==0 or saldo < lt.getElement(lt.getElement(lista,anio),9):
             lt.changeInfo(lista,anio,i)
             
     return lista
