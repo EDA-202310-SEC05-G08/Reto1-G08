@@ -129,3 +129,7 @@ def req_2(catalog):
 def req_3(catalog):
     answer=model.req_3(catalog["data"])
     return answer
+
+def req_6(catalog,anio):
+    answer = model.req6(catalog["data"],anio)
+    return answer

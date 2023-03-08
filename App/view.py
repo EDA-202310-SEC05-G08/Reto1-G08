@@ -264,6 +264,12 @@ while True:
         requerimiento3(answer)
         fin=controller.getTime()
         print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))
+    elif int(inputs[0])==8:
+        inicio=controller.getTime()
+        answer=controller.req_3(catalog)
+        requerimiento6(answer)
+        fin=controller.getTime()
+        print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))
     else:
         sys.exit(0)
 sys.exit(0)
