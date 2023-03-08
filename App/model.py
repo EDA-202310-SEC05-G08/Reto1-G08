@@ -238,12 +238,41 @@ def req_5(data_structs):
     pass
 
 
-def req_6(data_structs):
-    """
-    Función que soluciona el requerimiento 6
-    """
-    # TODO: Realizar el requerimiento 6
-    pass
+def req_6(data_structs,anio):
+    
+    
+    lista_anio = lt.newList("ARRAY_LIST")
+    
+    for dato_impuesto in lt.iterator(lista_anio):
+        if dato_impuesto["Año"] == anio:
+            lt.addlast(lista_anio,dato_impuesto)
+            
+            
+    lista_sectores = lt.newList("ARRAY_LIST")
+    
+    lista_control_sectores = lt.newList("ARRAY_LIST")
+    
+    for dato_filtrado in lt.iteratpr(lista_anio):
+        if lt.ispresent(dato_filtrado["Nombre sector economico"]) in lista_control_sectores: #CORREGIR
+            lt.addlast(lista_control_sectores,dato_filtrado["Nombre sector economico"])
+            dato_filtrado_sector = {"Nombre sector economico":dato_filtrado["Nombre sector economico"]} 
+            lt.addlast(lista_sectores,dato_filtrado_sector)
+        else:
+            for dato_filtrado_lista_sectores in lt.iterator(lista_sectores): #CORREGIR
+                if dato_filtrado_lista_sectores["Nombre sector economico"] == dato_filtrado["Nombre sector economico"]:
+                    dato_filtrado_lista_sectores["Total ingresos netos sector economico"] += dato_filtrado["Total ingresos netos sector economico"]
+                    
+                    
+    lista_subsectores_por_sector = lt.newList("ARRAY_LIST")
+    for sector in lt.iterator(lista_sectores):
+        lista_interna_subsectores = lt.newList("ARRAY_LIST") 
+        lista_control = lt.newList("ARRAY_LIST")
+        if lt.ispresent(lista_control,sector["Nombre subsector economico"]) == 0:
+            subsector 
+            
+            
+    mayor
+    
 
 
 def req_7(data_structs):
