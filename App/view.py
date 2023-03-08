@@ -354,22 +354,23 @@ while True:
         requerimiento3(answer)
         fin=controller.getTime()
         print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))
-        
-        
-        
-        
-        
-        
-    elif int(inputs[0])==6:
     elif int(inputs[0])==5:
         inicio=controller.getTime()
         answer=controller.req_4(catalog)
         requerimiento4(answer)
         fin=controller.getTime()
-        print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))
-    elif int(inputs[0])==8:
+        print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))        
+
+    elif int(inputs[0])==6:
         inicio=controller.getTime()
         answer=controller.req_5(catalog)
+        requerimiento3(answer)
+        fin=controller.getTime()
+        print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))
+
+    elif int(inputs[0])==8:
+        inicio=controller.getTime()
+        answer=controller.req_7(catalog)
         requerimiento5(answer)
         fin=controller.getTime()
         print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))    
