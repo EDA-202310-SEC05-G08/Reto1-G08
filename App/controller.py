@@ -59,7 +59,7 @@ def loadData(control, memflag=True):
         return control,delta_time,0
 
 def loadcontenido(catalog): 
-    file = cf.data_dir + 'Salida_agregados_renta_juridicos_AG-small.csv' 
+    file = cf.data_dir + 'Salida_agregados_renta_juridicos_AG-large.csv' 
     input_file = csv.DictReader(open(file, encoding='utf-8')) 
     for contenido in input_file: 
         model.addcontenidoN(catalog, contenido) 

@@ -101,12 +101,16 @@ def requerimiento1(lista):
         for i in lt.iterator(lista):
             list_aux.append(i)
     else:
+        list_aux.append(lt.getElement(lista,1))
         list_aux.append(lt.getElement(lista,2))
         list_aux.append(lt.getElement(lista,3))
         list_aux.append(lt.getElement(lista,4))
-        list_aux.append(lt.getElement(lista,size-2))
-        list_aux.append(lt.getElement(lista,size-1))
-        list_aux.append(lt.getElement(lista,size))
+        list_aux.append(lt.getElement(lista,5))
+        list_aux.append(lt.getElement(lista,6))
+        list_aux.append(lt.getElement(lista,7))
+        list_aux.append(lt.getElement(lista,8))
+        list_aux.append(lt.getElement(lista,9))
+        list_aux.append(lt.getElement(lista,10))
     for info in list_aux:
         list_aux2=["","","","","","","","","",""]
         list_aux2[0]=lt.getElement(info,1)
