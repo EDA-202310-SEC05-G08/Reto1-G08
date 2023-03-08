@@ -130,6 +130,6 @@ def req_3(catalog):
     answer=model.req_3(catalog["data"])
     return answer
 
-def req_6(catalog,anio):
-    answer = model.req6(catalog["data"],anio)
+def req_5(catalog):
+    answer=model.req_5(catalog["data"])
     return answer

@@ -84,6 +84,7 @@ def dicc_array(info):
     lt.addLast(array,int(info["Total saldo a pagar"]))#10
     lt.addLast(array,info["Total saldo a favor"])#11
     lt.addLast(array,info["Total retenciones"])#12
+    lt.addLast(array,info["Descuentos tributarios"])#13
 
     return array
 
@@ -236,43 +237,34 @@ def req_5(data_structs):
     """
     # TODO: Realizar el requerimiento 5
     pass
+    lista=lt.newList("ARRAY_LIST") #Por convencion, la posicion 1 sera 2012, 2 sera 2013 y asi sucesivamente
+    anio_base=2011
+    lt.addFirst(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    lt.addLast(lista,0)
+    
+    for i in lt.iterator(data_structs):
+        anio=lt.getElement(i,1)-anio_base  #Anio es la posicion para la lista
+        saldo=lt.getElement(i,13)  
+        if lt.getElement(lista,anio)==0 or saldo > lt.getElement(lt.getElement(lista,anio),13):
+            lt.changeInfo(lista,anio,i)
+            
+    return lista
 
 
-def req_6(data_structs,anio):
-    
-    
-    lista_anio = lt.newList("ARRAY_LIST")
-    
-    for dato_impuesto in lt.iterator(lista_anio):
-        if dato_impuesto["Año"] == anio:
-            lt.addlast(lista_anio,dato_impuesto)
-            
-            
-    lista_sectores = lt.newList("ARRAY_LIST")
-    
-    lista_control_sectores = lt.newList("ARRAY_LIST")
-    
-    for dato_filtrado in lt.iteratpr(lista_anio):
-        if lt.ispresent(dato_filtrado["Nombre sector economico"]) in lista_control_sectores: #CORREGIR
-            lt.addlast(lista_control_sectores,dato_filtrado["Nombre sector economico"])
-            dato_filtrado_sector = {"Nombre sector economico":dato_filtrado["Nombre sector economico"]} 
-            lt.addlast(lista_sectores,dato_filtrado_sector)
-        else:
-            for dato_filtrado_lista_sectores in lt.iterator(lista_sectores): #CORREGIR
-                if dato_filtrado_lista_sectores["Nombre sector economico"] == dato_filtrado["Nombre sector economico"]:
-                    dato_filtrado_lista_sectores["Total ingresos netos sector economico"] += dato_filtrado["Total ingresos netos sector economico"]
-                    
-                    
-    lista_subsectores_por_sector = lt.newList("ARRAY_LIST")
-    for sector in lt.iterator(lista_sectores):
-        lista_interna_subsectores = lt.newList("ARRAY_LIST") 
-        lista_control = lt.newList("ARRAY_LIST")
-        if lt.ispresent(lista_control,sector["Nombre subsector economico"]) == 0:
-            subsector 
-            
-            
-    mayor
-    
+def req_6(data_structs):
+    """
+    Función que soluciona el requerimiento 6
+    """
+    # TODO: Realizar el requerimiento 6
+    pass
 
 
 def req_7(data_structs):
@@ -325,11 +317,3 @@ def sort(data_structs):
     Función encargada de ordenar la lista con los datos
     """
     sa.sort(data_structs["data"], sort_criteria)
-
-def cmp_by_year(data1,data2):
-    if data1["año"] < data2["año"]:
-        return True
-    elif data1["año"] == data2["año"]:
-        return True
-    else:
-        return False
