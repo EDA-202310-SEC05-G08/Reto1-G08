@@ -22,6 +22,7 @@
 
 import config as cf
 import sys
+
 import controller
 from DISClib.ADT import list as lt
 assert cf
@@ -58,7 +59,6 @@ se hace la solicitud al controlador para ejecutar la
 operación solicitada
 """
 def cargadatos(lista): 
-   
     list_aux=[]
     list_aux_=[]
     size=lt.size(lista)
@@ -66,9 +66,9 @@ def cargadatos(lista):
         for i in lt.iterator(lista):
             list_aux.append(i)
     else:
+        list_aux.append(lt.getElement(lista,1))
         list_aux.append(lt.getElement(lista,2))
         list_aux.append(lt.getElement(lista,3))
-        list_aux.append(lt.getElement(lista,4))
         list_aux.append(lt.getElement(lista,size-2))
         list_aux.append(lt.getElement(lista,size-1))
         list_aux.append(lt.getElement(lista,size))
@@ -141,12 +141,16 @@ def requerimiento2(lista):
         for i in lt.iterator(lista):
             list_aux.append(i)
     else:
+        list_aux.append(lt.getElement(lista,1))
         list_aux.append(lt.getElement(lista,2))
         list_aux.append(lt.getElement(lista,3))
         list_aux.append(lt.getElement(lista,4))
-        list_aux.append(lt.getElement(lista,size-2))
-        list_aux.append(lt.getElement(lista,size-1))
-        list_aux.append(lt.getElement(lista,size))
+        list_aux.append(lt.getElement(lista,5))
+        list_aux.append(lt.getElement(lista,6))
+        list_aux.append(lt.getElement(lista,7))
+        list_aux.append(lt.getElement(lista,8))
+        list_aux.append(lt.getElement(lista,9))
+        list_aux.append(lt.getElement(lista,10))
     for info in list_aux:
         list_aux2=["","","","","","","","","",""]
         list_aux2[0]=lt.getElement(info,1)
@@ -161,9 +165,6 @@ def requerimiento2(lista):
         list_aux2[9]=lt.getElement(info,10)
         
         
-
-
-
         list_aux_.append(list_aux2)
     cabecero=["Año","Codigo Actividad Economico","Nombre Actividad Economico","Codigo Sector Economico","Nombre sector economico","Codigo subsector economico","Total ingresos netos","Total costos y gastos", "Total saldo a pagar", "Total saldo a favor"]
     print(tabulate(list_aux_,headers=cabecero,tablefmt="grid",maxcolwidths=[5,10,10,10,10,10,10,10,5,5,5]))        
@@ -177,12 +178,16 @@ def requerimiento3(lista):
         for i in lt.iterator(lista):
             list_aux.append(i)
     else:
+        list_aux.append(lt.getElement(lista,1))
         list_aux.append(lt.getElement(lista,2))
         list_aux.append(lt.getElement(lista,3))
         list_aux.append(lt.getElement(lista,4))
-        list_aux.append(lt.getElement(lista,size-2))
-        list_aux.append(lt.getElement(lista,size-1))
-        list_aux.append(lt.getElement(lista,size))
+        list_aux.append(lt.getElement(lista,5))
+        list_aux.append(lt.getElement(lista,6))
+        list_aux.append(lt.getElement(lista,7))
+        list_aux.append(lt.getElement(lista,8))
+        list_aux.append(lt.getElement(lista,9))
+        list_aux.append(lt.getElement(lista,10))
     for info in list_aux:
         list_aux2=["","","","","","","","","",""]
         list_aux2[0]=lt.getElement(info,1)
@@ -201,8 +206,8 @@ def requerimiento3(lista):
 
 
         list_aux_.append(list_aux2)
-    cabecero=["Año","Codigo Sector Economico","Nombre Sector Economico","Codigo Subsector Economico","Nombre subsector economico","Total de retencion del subsector economico","Total ingresos netos del subsector economico","Total costos y gastos del subsector economico", "Total saldo a pagar del subsector economico", "Total saldo a favor del subsector economico"]
-    print(tabulate(list_aux_,headers=cabecero,tablefmt="grid",maxcolwidths=[5,10,10,10,10,10,10,10,5,5,5]))   
+    cabecero=["Año","Cod Sector Economico","Nom Sector Economico","Cod Subsector","Nom subsector","Total de retencion","Total ingresos netos","Total costos y gastos del subsector economico", "Total saldo a pagar del subsector economico", "Total saldo a favor del subsector economico"]
+    print(tabulate(list_aux_,headers=cabecero,tablefmt="grid",maxcolwidths=[3,5,10,3,3,3,3,3,3,3]))   
 
 def printMenu():
     print("Bienvenido")
