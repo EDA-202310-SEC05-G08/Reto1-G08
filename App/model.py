@@ -199,7 +199,7 @@ def req_3(info):
 
 
 
-def req_4(catalog):
+def req_4(info):
     """
     Requerimiento No. 4 (Individual): Encontrar el subsector económico con los mayores
     costos y gastos de nómina para todos los años disponibles    """
