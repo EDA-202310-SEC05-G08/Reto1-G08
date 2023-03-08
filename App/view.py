@@ -259,6 +259,46 @@ def requerimiento5(lista):
     
     
 
+def requerimiento4(lista): 
+   
+    list_aux=[]
+    list_aux_=[]
+    size=lt.size(lista)
+    if size<6:
+        for i in lt.iterator(lista):
+            list_aux.append(i)
+    else:
+        list_aux.append(lt.getElement(lista,1))
+        list_aux.append(lt.getElement(lista,2))
+        list_aux.append(lt.getElement(lista,3))
+        list_aux.append(lt.getElement(lista,4))
+        list_aux.append(lt.getElement(lista,5))
+        list_aux.append(lt.getElement(lista,6))
+        list_aux.append(lt.getElement(lista,7))
+        list_aux.append(lt.getElement(lista,8))
+        list_aux.append(lt.getElement(lista,9))
+        list_aux.append(lt.getElement(lista,10))
+    for info in list_aux:
+        list_aux2=["","","","","","","","","",""]
+        list_aux2[0]=lt.getElement(info,1)
+        list_aux2[1]=lt.getElement(info,4)
+        list_aux2[2]=lt.getElement(info,5)
+        list_aux2[3]=lt.getElement(info,6)
+        list_aux2[4]=lt.getElement(info,7)
+        list_aux2[5]=lt.getElement(info,12)
+        list_aux2[6]=lt.getElement(info,8)
+        list_aux2[7]=lt.getElement(info,9)
+        list_aux2[8]=lt.getElement(info,10)
+        list_aux2[9]=lt.getElement(info,11)
+        
+        
+
+
+
+        list_aux_.append(list_aux2)
+    cabecero=["Año","Cod Sec Economico","Nom Sect Economico","Cod Subsect","Nom subsect","Total de retencion","Total ingresos netos","Total costos y gastos del subsector economico", "Total saldo a pagar del subsect economico", "Total saldo a favor del subsect economico"]
+    print(tabulate(list_aux_,headers=cabecero,tablefmt="grid",maxcolwidths=[3,5,10,3,10,3,3,3,3,3]))
+
 def printMenu():
     print("Bienvenido")
     print("1- Cargar información en el catálogo")
@@ -321,6 +361,13 @@ while True:
         
         
     elif int(inputs[0])==6:
+    elif int(inputs[0])==5:
+        inicio=controller.getTime()
+        answer=controller.req_4(catalog)
+        requerimiento4(answer)
+        fin=controller.getTime()
+        print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))
+    elif int(inputs[0])==8:
         inicio=controller.getTime()
         answer=controller.req_5(catalog)
         requerimiento5(answer)
