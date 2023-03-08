@@ -270,12 +270,12 @@ def req_6(data_structs,anio):
     lista_control_sectores = lt.newList("ARRAY_LIST")
     
     for dato_filtrado in lt.iteratpr(lista_anio):
-        if lt.ispresent(lista_control_sectores, lt.getElement(dato_filtrado,5)) == 1: #CORREGIR
+        if lt.ispresent(lista_control_sectores, lt.getElement(dato_filtrado,5)) == 1: 
             lt.addlast(lista_control_sectores,lt.getElement(dato_filtrado,5))
             dato_filtrado_sector = {"Nombre sector economico":lt.getElement(dato_filtrado,5)} 
             lt.addlast(lista_sectores,dato_filtrado_sector)
         else:
-            for dato_filtrado_lista_sectores in lt.iterator(lista_sectores): #CORREGIR
+            for dato_filtrado_lista_sectores in lt.iterator(lista_sectores): 
                 if lt.getElement(dato_filtrado_lista_sectores,5) == lt.getElement(dato_filtrado,5):
                     dato_filtrado_lista_sectores["Total ingresos netos sector economico"] += dato_filtrado["Total ingresos netos sector economico"]
                     
@@ -285,27 +285,14 @@ def req_6(data_structs,anio):
         lista_interna_subsectores = lt.newList("ARRAY_LIST") 
         lista_control = lt.newList("ARRAY_LIST")
         if lt.ispresent(lista_control,sector["Nombre subsector economico"]) == 0:
-            subsector 
-            
-            
-    mayor
-
-
-def req_7(data_structs):
-    """
-    Función que soluciona el requerimiento 7
-    """
-    # TODO: Realizar el requerimiento 7
-    pass
-
-
-def req_8(data_structs):
-    """
-    Función que soluciona el requerimiento 8
-    """
-    # TODO: Realizar el requerimiento 8
-    pass
-
+            lt.addlast(lista_control_sectores,lt.getElement(dato_filtrado,7))
+            dato_filtrado_sector = {"Nombre sector economico":lt.getElement(dato_filtrado,7)} 
+            lt.addlast(lista_sectores,dato_filtrado_sector)  
+        else:
+            for dato_filtrado_lista_sectores in lt.iterator(lista_sectores): 
+                if lt.getElement(dato_filtrado_lista_sectores,5) == lt.getElement(dato_filtrado,7):
+                    dato_filtrado_lista_sectores["Total ingresos netos sector economico"] += dato_filtrado["Total ingresos netos sector economico"]
+    return None
 
 # Funciones utilizadas para comparar elementos dentro de una lista
 
