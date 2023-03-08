@@ -368,7 +368,7 @@ while True:
         fin=controller.getTime()
         print("Ha tardado {0}".format(controller.deltaTime(inicio,fin)))
 
-    elif int(inputs[0])==8:
+    elif int(inputs[0])==7:
         inicio=controller.getTime()
         answer=controller.req_7(catalog)
         requerimiento5(answer)
